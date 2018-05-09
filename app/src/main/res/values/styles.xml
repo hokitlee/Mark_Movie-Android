@@ -1,0 +1,16 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorPrimary">#000000</item>
+        <item name="colorPrimary">#3e58ec</item>
+        <item name="colorPrimaryDark">#00ff00</item>
+        <item name="colorAccent">#0000ff</item>
+        #这句话是关键，状态栏透明
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="mytoor">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+</resources>
