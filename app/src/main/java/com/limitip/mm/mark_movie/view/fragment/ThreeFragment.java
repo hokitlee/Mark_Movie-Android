@@ -1,4 +1,4 @@
-package com.limitip.mm.mark_movie.fragment;
+package com.limitip.mm.mark_movie.view.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 
 import com.limitip.mm.mark_movie.R;
 import com.limitip.mm.mark_movie.service.movie.MovieService;
-import com.limitip.mm.mark_movie.service.movie.movieImpl.GetWantMoviesServiceImpl;
 
 public class ThreeFragment extends Fragment {
 

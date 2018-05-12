@@ -1,65 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/toolbar1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/mytoor"
-        >
-
-        <TextView
-            android:id="@+id/toolbarLoginTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="影视"
-            android:textColor="@android:color/white"/>
-    </android.support.v7.widget.Toolbar>
-    <LinearLayout
+<layout>
+<data>
+    <variable
+        name="movies"
+        type="com.limitip.mm.mark_movie.pojo.DoubanMovie">
+    </variable>
+</data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/nowShow"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:text="正在上映"/>
-        <Button
-            android:id="@+id/comingSoon"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:text="即将上映"/>
-        <Button
-            android:id="@+id/top250"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:text="top250"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!--<Button-->
-            <!--android:id="@+id/UsRankings"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@android:color/white"-->
-            <!--android:text="北美票房榜"/>-->
+        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/toolbar1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/mytoor">
+
+            <TextView
+                android:id="@+id/toolbarLoginTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="影视"
+                android:textColor="@android:color/white" />
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/nowShow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:text="正在上映" />
+
+            <Button
+                android:id="@+id/comingSoon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:text="即将上映" />
+
+            <Button
+                android:id="@+id/top250"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:text="top250" />
+
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/apiMoiveGridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="80dp"
+            android:numColumns="3"
+            android:stretchMode="spacingWidthUniform" />
+        <!--android:stretchMode="spacingWidthUniform"-->
     </LinearLayout>
-    <GridView
-        android:id="@+id/apiMoiveGridview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnWidth="80dp"
-        android:stretchMode="spacingWidthUniform"
-        android:numColumns="3"
-        />
-    <!--android:stretchMode="spacingWidthUniform"-->
-</LinearLayout>
+</layout>

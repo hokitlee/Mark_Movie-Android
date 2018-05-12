@@ -9,11 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioGroup;
 
 import com.limitip.mm.mark_movie.R;
-import com.limitip.mm.mark_movie.fragment.FiveFragment;
-import com.limitip.mm.mark_movie.fragment.FourFragment;
-import com.limitip.mm.mark_movie.fragment.OneFragment;
-import com.limitip.mm.mark_movie.fragment.ThreeFragment;
-import com.limitip.mm.mark_movie.fragment.TwoFragment;
+import com.limitip.mm.mark_movie.view.fragment.FiveFragment;
+import com.limitip.mm.mark_movie.view.fragment.FourFragment;
+import com.limitip.mm.mark_movie.view.fragment.OneFragment;
+import com.limitip.mm.mark_movie.view.fragment.ThreeFragment;
+import com.limitip.mm.mark_movie.view.fragment.TwoFragment;
 
 public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
 

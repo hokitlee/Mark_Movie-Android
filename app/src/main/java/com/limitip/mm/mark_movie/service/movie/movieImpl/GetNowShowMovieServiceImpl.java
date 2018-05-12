@@ -12,7 +12,7 @@ import com.limitip.mm.mark_movie.adapter.ApiMoiveAdapter;
 import com.limitip.mm.mark_movie.clikListener.ObserverManager;
 import com.limitip.mm.mark_movie.connectBase.ConnectBase;
 import com.limitip.mm.mark_movie.connectBase.Id;
-import com.limitip.mm.mark_movie.fragment.OneFragment;
+import com.limitip.mm.mark_movie.view.fragment.OneFragment;
 import com.limitip.mm.mark_movie.pojo.DoubanMovie;
 import com.limitip.mm.mark_movie.service.movie.MovieService;
 

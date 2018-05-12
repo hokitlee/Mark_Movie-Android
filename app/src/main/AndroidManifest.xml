@@ -21,7 +21,7 @@
         <activity android:name=".view.UserRegisterActivity" />
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.SearchMovieActivity" />
-        <activity android:name=".view.MovieShowActivity"></activity>
+        <activity android:name=".view.MovieShowActivity" />
     </application>
 
 </manifest>

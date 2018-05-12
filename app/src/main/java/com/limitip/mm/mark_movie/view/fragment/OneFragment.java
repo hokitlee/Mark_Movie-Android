@@ -1,4 +1,4 @@
-package com.limitip.mm.mark_movie.fragment;
+package com.limitip.mm.mark_movie.view.fragment;
 
 import android.app.Activity;
 import android.content.Intent;

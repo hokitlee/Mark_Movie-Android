@@ -19,6 +19,8 @@ import okhttp3.Response;
  */
 
 public class ConnectBase {
+    public static String BASE_URL = "http://192.168.31.37:8080/";
+
     public Call getPostCall(RequestBody body, String Url) {
         /*
          * 172.20.10.2 手机

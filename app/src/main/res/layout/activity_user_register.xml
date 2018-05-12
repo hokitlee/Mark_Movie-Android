@@ -7,9 +7,12 @@
             type="com.limitip.mm.mark_movie.pojo.User" />
 
         <variable
-            name="controller"
-            type="com.limitip.mm.mark_movie.view.UserRegisterActivity.Controller" />
+            name="userVm"
+            type="com.limitip.mm.mark_movie.viewmodel.UserVM" />
 
+        <!--<variable
+            name="view"
+            type="com.limitip.mm.mark_movie.view.UserRegisterActivity"/>-->
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -43,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:selectAllOnFocus="true"
-            android:onTextChanged="@{controller.onUserNameChanged}"
+            android:text="@={user.userName}"
             />
 
         <TextView
@@ -57,7 +60,8 @@
             android:layout_height="wrap_content"
             android:password="true"
             android:selectAllOnFocus="true"
-            android:onTextChanged="@{controller.onUserPsdChanged}"/>
+            android:text="@={user.userPsd}"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -69,7 +73,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:selectAllOnFocus="true"
-            android:onTextChanged="@{controller.onUserSexChanged}"/>
+            android:text="@={user.sex}"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -81,13 +86,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:selectAllOnFocus="true"
-            android:onTextChanged="@{controller.onUserPhoneChanged}"/>
-
+            android:text="@={`` +user.phone}"
+            />
+<!--   android:text="@={user.phone}"-->
         <Button
             android:id="@+id/registerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->controller.onClickListenerBinding()}"
+            android:onClick="@{(view)->userVm.userRegister(user,view)}"
             android:text="注册"/>
     </LinearLayout>
 </layout>
