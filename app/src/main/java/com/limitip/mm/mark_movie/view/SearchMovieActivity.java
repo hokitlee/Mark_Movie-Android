@@ -10,13 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.limitip.mm.mark_movie.R;
-import com.limitip.mm.mark_movie.service.movie.movieImpl.GetApiSearchMovieServiceImpl;
+import com.limitip.mm.mark_movie.service.movie.movieImpl.GetApiSearchMovieService1Impl;
 
 public class SearchMovieActivity extends AppCompatActivity implements View.OnClickListener{
 
     private View rootView;
     private Activity activity;
-    private GetApiSearchMovieServiceImpl movieService;
+    private GetApiSearchMovieService1Impl movieService;
     private Toolbar toolbar;
     private LayoutInflater inflater;
     private SearchView searchView;
@@ -36,7 +36,7 @@ public class SearchMovieActivity extends AppCompatActivity implements View.OnCli
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        movieService = new GetApiSearchMovieServiceImpl(activity,getIntent().getStringExtra("searchContext"));
+        movieService = new GetApiSearchMovieService1Impl(activity,getIntent().getStringExtra("searchContext"));
         movieService.getMovice();
     }
 

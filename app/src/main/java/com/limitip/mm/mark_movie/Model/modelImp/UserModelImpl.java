@@ -13,6 +13,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class UserModelImpl implements UserModel {
+    private User resultUser;
     @Override
     public void userLogin(final User user, final BaseLoadListener<User> loadListener) {
 
@@ -22,6 +23,7 @@ public class UserModelImpl implements UserModel {
                 .subscribe(new BaseObserver<User>() {
                     @Override
                     public void onNext(User user) {
+                        loadListener.LoadSuccess(user);
                     }
 
                     @Override
@@ -31,7 +33,7 @@ public class UserModelImpl implements UserModel {
 
                     @Override
                     public void onComplete() {
-                        loadListener.LoadSuccess(user);
+
                     }
                 });
     }

@@ -28,8 +28,10 @@ public class User extends BaseObservable{
         this.id = id;
         notifyPropertyChanged(BR.id);
     }
+
     @Bindable
     public String getUserName() {
+
         return userName;
     }
 
@@ -37,8 +39,10 @@ public class User extends BaseObservable{
         this.userName = userName;
         notifyPropertyChanged(BR.userName);
     }
+
     @Bindable
     public String getUserPsd() {
+
         return userPsd;
     }
 
@@ -46,8 +50,10 @@ public class User extends BaseObservable{
         this.userPsd = userPsd;
         notifyPropertyChanged(BR.userPsd);
     }
+
     @Bindable
     public String getSex() {
+
         return sex;
     }
 
@@ -58,6 +64,7 @@ public class User extends BaseObservable{
 
     @Bindable
     public int getPhone() {
+
         return phone;
     }
 
@@ -65,8 +72,10 @@ public class User extends BaseObservable{
         this.phone = phone;
         notifyPropertyChanged(BR.phone);
     }
+
     @Bindable
     public String getToken() {
+
         return token;
     }
 

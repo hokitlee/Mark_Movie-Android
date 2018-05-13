@@ -1,44 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+<layout>
 
-    <ImageView
-        android:id="@+id/apiMovieImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_launcher_background"/>
-    <TextView
-        android:id="@+id/apiMovieNmae"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:scrollbars="vertical"
-        android:text="电影名称"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:id="@+id/apiMovieType1"
+
+    <data>
+        <variable
+            name="movie"
+            type="com.limitip.mm.mark_movie.pojo.DoubanMovie.DoubanSubjects"></variable>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/apiMovieImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="10dp"
-            android:text="1"/>
+            android:background="@drawable/ic_launcher_background" />
+
         <TextView
-            android:id="@+id/apiMovieType2"
+            android:id="@+id/apiMovieNmae"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:text="2"/>
+            android:scrollbars="vertical"
+            android:singleLine="true"
+            android:text="@={movie.title}" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/apiMovieType1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:text="1" />
+
+            <TextView
+                android:id="@+id/apiMovieType2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="2" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/apiMovieTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={movie.year}" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/apiMovieTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="时间"/>
-</LinearLayout>
+</layout>

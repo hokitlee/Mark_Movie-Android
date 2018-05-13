@@ -1,4 +1,4 @@
-package com.limitip.mm.mark_movie.connectBase;
+package com.limitip.mm.mark_movie.util.connectBase;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -19,8 +19,8 @@ import okhttp3.Response;
  */
 
 public class ConnectBase {
-    public static String BASE_URL = "http://192.168.31.37:8080/";
-
+    public static String BASE_URL = "http://172.20.10.2:8080/";
+    public static String DOUBAN_URL = "http://api.douban.com/";
     public Call getPostCall(RequestBody body, String Url) {
         /*
          * 172.20.10.2 手机

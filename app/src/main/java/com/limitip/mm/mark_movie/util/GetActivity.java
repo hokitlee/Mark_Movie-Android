@@ -1,4 +1,4 @@
-package com.limitip.mm.mark_movie.connectBase.util;
+package com.limitip.mm.mark_movie.util;
 
 import android.app.Activity;
 import android.content.Context;

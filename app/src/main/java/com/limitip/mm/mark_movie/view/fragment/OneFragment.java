@@ -2,6 +2,7 @@ package com.limitip.mm.mark_movie.view.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,20 +23,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.limitip.mm.mark_movie.R;
+import com.limitip.mm.mark_movie.adapter.MovieAdapter;
 import com.limitip.mm.mark_movie.clikListener.ObserverListener;
-import com.limitip.mm.mark_movie.clikListener.ObserverManager;
+import com.limitip.mm.mark_movie.databinding.OneBinding;
 import com.limitip.mm.mark_movie.pojo.DoubanMovie;
-import com.limitip.mm.mark_movie.service.movie.movieImpl.GetComingSoonMovieServicempl;
-import com.limitip.mm.mark_movie.service.movie.movieImpl.GetNowShowMovieServiceImpl;
-import com.limitip.mm.mark_movie.service.movie.movieImpl.GetTop250MovieServiceImpl;
-import com.limitip.mm.mark_movie.service.movie.MovieService;
+import com.limitip.mm.mark_movie.service.movie.MovieService1;
 import com.limitip.mm.mark_movie.view.SearchMovieActivity;
+import com.limitip.mm.mark_movie.viewmodel.MovieVM;
 
-public class OneFragment extends Fragment implements View.OnClickListener,ObserverListener{
+public class OneFragment extends Fragment implements View.OnClickListener, ObserverListener {
+
+    private OneBinding binding;
+    private MovieAdapter movieAdapter;
 
     private View rootView;
     private Activity activity;
-    private MovieService movieService;
+    private MovieService1 movieService1;
     private Toolbar toolbar;
     private LayoutInflater inflater;
     private SearchView searchView;
@@ -44,6 +47,7 @@ public class OneFragment extends Fragment implements View.OnClickListener,Observ
     private Button top250;
     private GridView gridView;
     private DoubanMovie doubanMovie;
+    private MovieVM movieVM;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,10 +61,8 @@ public class OneFragment extends Fragment implements View.OnClickListener,Observ
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         this.inflater = inflater;
-        rootView = inflater.inflate(R.layout.one, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.one, container, false);
         initialize();
-        movieService = new GetComingSoonMovieServicempl(this);
-        movieService.getMovice();
         return rootView;
     }
 
@@ -76,6 +78,7 @@ public class OneFragment extends Fragment implements View.OnClickListener,Observ
             @Override
             public boolean onQueryTextSubmit(String query) {
                 searchView.setIconified(true);
+//                movieVM.searchMovie(query,binding);
                 Intent intent = new Intent(activity, SearchMovieActivity.class);
                 intent.putExtra("searchContext", query);
                 startActivity(intent);
@@ -103,16 +106,13 @@ public class OneFragment extends Fragment implements View.OnClickListener,Observ
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.nowShow:
-                movieService = new GetNowShowMovieServiceImpl(this);
-                movieService.getMovice();
+                movieVM.nowShowMovieVM(binding);
                 break;
             case R.id.comingSoon:
-                movieService = new GetComingSoonMovieServicempl(this);
-                movieService.getMovice();
+                movieVM.comingSoonMovie(binding);
                 break;
             case R.id.top250:
-                movieService = new GetTop250MovieServiceImpl(this);
-                movieService.getMovice();
+                movieVM.top250Movie(binding);
                 break;
             default:
                 Toast.makeText(activity, "default", Toast.LENGTH_SHORT).show();
@@ -121,18 +121,17 @@ public class OneFragment extends Fragment implements View.OnClickListener,Observ
     }
 
     private void initialize() {
-        nowShow =  rootView.findViewById(R.id.nowShow);
-        comingSoon =  rootView.findViewById(R.id.comingSoon);
-        top250 =  rootView.findViewById(R.id.top250);
-        toolbar = rootView.findViewById(R.id.toolbar1);
-        gridView = rootView.findViewById(R.id.apiMoiveGridview);
-        nowShow.setOnClickListener(this);
-        comingSoon.setOnClickListener(this);
-        top250.setOnClickListener(this);
-        gridView.setOnItemClickListener(new OICL());
+        toolbar = binding.toolbar1;
         ((AppCompatActivity) activity).setSupportActionBar(toolbar);
         ((AppCompatActivity) activity).getSupportActionBar().setDisplayShowTitleEnabled(false);
-        ObserverManager.getInstance().add(this);
+        rootView = binding.getRoot();
+        movieVM = new MovieVM();
+        movieVM.nowShowMovieVM(binding);
+        //点击监听
+        binding.apiMoiveGridview.setOnItemClickListener(new OICL());
+        binding.nowShow.setOnClickListener(this);
+        binding.comingSoon.setOnClickListener(this);
+        binding.top250.setOnClickListener(this);
     }
 
     @Override
@@ -140,11 +139,11 @@ public class OneFragment extends Fragment implements View.OnClickListener,Observ
         doubanMovie = (DoubanMovie) object;
     }
 
-    class OICL implements AdapterView.OnItemClickListener{
-       @Override
-       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-           String apiMovieNmae = ((TextView)view.findViewById(R.id.apiMovieNmae)).getText().toString();
-           Toast.makeText(activity, apiMovieNmae, Toast.LENGTH_SHORT).show();
-       }
-   }
+    class OICL implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            String apiMovieNmae = ((TextView) view.findViewById(R.id.apiMovieNmae)).getText().toString();
+            Toast.makeText(activity, apiMovieNmae, Toast.LENGTH_SHORT).show();
+        }
+    }
 }

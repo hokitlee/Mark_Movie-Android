@@ -11,8 +11,8 @@ import com.google.gson.reflect.TypeToken;
 import com.limitip.mm.mark_movie.pojo.User;
 import com.limitip.mm.mark_movie.view.MainActivity;
 import com.limitip.mm.mark_movie.view.UserLoginActivity;
-import com.limitip.mm.mark_movie.connectBase.ConnectBase;
-import com.limitip.mm.mark_movie.connectBase.Id;
+import com.limitip.mm.mark_movie.util.connectBase.ConnectBase;
+import com.limitip.mm.mark_movie.util.Id;
 
 import java.io.IOException;
 

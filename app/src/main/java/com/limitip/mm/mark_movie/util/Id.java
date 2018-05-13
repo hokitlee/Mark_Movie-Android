@@ -1,6 +1,4 @@
-package com.limitip.mm.mark_movie.connectBase;
-
-import android.databinding.BindingConversion;
+package com.limitip.mm.mark_movie.util;
 
 /**
  * Created by hokitlee on 2018/3/22.

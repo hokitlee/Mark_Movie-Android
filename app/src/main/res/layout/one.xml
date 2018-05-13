@@ -2,6 +2,13 @@
 <layout>
 <data>
     <variable
+        name="adapter"
+        type="com.limitip.mm.mark_movie.adapter.MovieAdapter" >
+    </variable>
+    <variable
+        name="layoutManager"
+        type="android.widget.GridView" />
+    <variable
         name="movies"
         type="com.limitip.mm.mark_movie.pojo.DoubanMovie">
     </variable>
@@ -63,7 +70,9 @@
             android:layout_height="wrap_content"
             android:columnWidth="80dp"
             android:numColumns="3"
-            android:stretchMode="spacingWidthUniform" />
+            android:stretchMode="spacingWidthUniform"
+            android:adapter="@{adapter}"
+            />
         <!--android:stretchMode="spacingWidthUniform"-->
     </LinearLayout>
 </layout>

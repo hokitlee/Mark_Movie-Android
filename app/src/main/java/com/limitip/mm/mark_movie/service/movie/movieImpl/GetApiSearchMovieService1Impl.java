@@ -7,14 +7,12 @@ import android.widget.ListAdapter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.limitip.mm.mark_movie.R;
-import com.limitip.mm.mark_movie.adapter.ApiMoiveAdapter;
-import com.limitip.mm.mark_movie.clikListener.ObserverManager;
-import com.limitip.mm.mark_movie.connectBase.ConnectBase;
-import com.limitip.mm.mark_movie.connectBase.Id;
-import com.limitip.mm.mark_movie.view.fragment.OneFragment;
+import com.limitip.mm.mark_movie.adapter.ApiSearchMovieAdapter;
+import com.limitip.mm.mark_movie.util.Id;
 import com.limitip.mm.mark_movie.pojo.DoubanMovie;
-import com.limitip.mm.mark_movie.service.movie.MovieService;
+import com.limitip.mm.mark_movie.R;
+import com.limitip.mm.mark_movie.util.connectBase.ConnectBase;
+import com.limitip.mm.mark_movie.service.movie.MovieService1;
 
 import java.io.IOException;
 
@@ -22,20 +20,20 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class GetNowShowMovieServiceImpl implements MovieService {
+public class GetApiSearchMovieService1Impl implements MovieService1 {
     private DoubanMovie doubanMovie;
     private Activity activity;
-    private OneFragment oneFragment;
-    public GetNowShowMovieServiceImpl(OneFragment oneFragment) {
-        this.activity = oneFragment.getActivity();
-        this.oneFragment = oneFragment;
+    private String searchContext;
+
+    public GetApiSearchMovieService1Impl(Activity activity, String searchContext) {
+        this.activity = activity;
+        this.searchContext = searchContext;
     }
 
     @Override
     public void getMovice() {
-
-        String url = "/v2/movie/in_theaters?"
-                +"id="+ Id.id
+        String url = "/v2/movie/search?q="+searchContext
+                +"&&id="+Id.id
                 +"&&token="+ Id.token;
         ConnectBase connectBase = new ConnectBase();
         Call call = connectBase.getGetCall(url);
@@ -55,12 +53,12 @@ public class GetNowShowMovieServiceImpl implements MovieService {
                     @Override
                     public void run() {
                         GridView gridView = activity.findViewById(R.id.apiMoiveGridview);
-                        Adapter adapter =  new ApiMoiveAdapter(activity,doubanMovie);
+                        Adapter adapter = new ApiSearchMovieAdapter(activity,doubanMovie);
                         gridView.setAdapter((ListAdapter) adapter);
-                        ObserverManager.getInstance().notifyObserver(oneFragment,doubanMovie);
                     }
                 });
             }
         });
     }
+
 }

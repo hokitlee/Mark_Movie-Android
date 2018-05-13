@@ -8,12 +8,12 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.limitip.mm.mark_movie.adapter.WatchedMovieAdapter;
-import com.limitip.mm.mark_movie.connectBase.Id;
+import com.limitip.mm.mark_movie.util.Id;
 import com.limitip.mm.mark_movie.pojo.DoubanMovie;
 import com.limitip.mm.mark_movie.pojo.Movie;
 import com.limitip.mm.mark_movie.R;
-import com.limitip.mm.mark_movie.connectBase.ConnectBase;
-import com.limitip.mm.mark_movie.service.movie.MovieService;
+import com.limitip.mm.mark_movie.util.connectBase.ConnectBase;
+import com.limitip.mm.mark_movie.service.movie.MovieService1;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,12 +25,12 @@ import okhttp3.FormBody;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class GetWatchedMoviesServiceImpl implements MovieService {
+public class GetWatchedMoviesService1Impl implements MovieService1 {
     private List<Movie> movies = new ArrayList<Movie>();
     private DoubanMovie doubanMovie;
     private Activity activity;
 
-    public GetWatchedMoviesServiceImpl(Activity activity) {
+    public GetWatchedMoviesService1Impl(Activity activity) {
         this.activity = activity;
     }
 

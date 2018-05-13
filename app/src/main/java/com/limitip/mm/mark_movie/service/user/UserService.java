@@ -1,6 +1,6 @@
 package com.limitip.mm.mark_movie.service.user;
 
-import com.limitip.mm.mark_movie.connectBase.ConnectBase;
+import com.limitip.mm.mark_movie.util.connectBase.ConnectBase;
 import com.limitip.mm.mark_movie.pojo.Message;
 import com.limitip.mm.mark_movie.pojo.User;
 import com.parkingwang.okhttp3.LogInterceptor.LogInterceptor;

@@ -2,6 +2,7 @@ package com.limitip.mm.mark_movie.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.databinding.Bindable;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
