@@ -1,41 +1,31 @@
 package com.limitip.mm.mark_movie.viewmodel;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import com.limitip.mm.mark_movie.Model.MovieModel;
 import com.limitip.mm.mark_movie.Model.modelImp.MovieModelImpl;
 import com.limitip.mm.mark_movie.R;
 import com.limitip.mm.mark_movie.adapter.CustomDialog;
 import com.limitip.mm.mark_movie.adapter.MovieAdapter;
 import com.limitip.mm.mark_movie.base.BaseLoadListener;
-import com.limitip.mm.mark_movie.clikListener.ObserverListener;
 import com.limitip.mm.mark_movie.clikListener.ObserverManager;
 import com.limitip.mm.mark_movie.databinding.ActivityMovieShowBinding;
 import com.limitip.mm.mark_movie.databinding.ActivitySearchMovieBinding;
+import com.limitip.mm.mark_movie.databinding.OneBinding;
 import com.limitip.mm.mark_movie.databinding.ThreeBinding;
 import com.limitip.mm.mark_movie.databinding.TwoBinding;
 import com.limitip.mm.mark_movie.pojo.DoubanMovie;
-import com.limitip.mm.mark_movie.databinding.OneBinding;
 import com.limitip.mm.mark_movie.pojo.Message;
 import com.limitip.mm.mark_movie.pojo.Subjects;
 import com.limitip.mm.mark_movie.pojo.User;
 import com.limitip.mm.mark_movie.util.GetActivity;
 import com.limitip.mm.mark_movie.util.Id;
 import com.limitip.mm.mark_movie.util.MyConvert;
-import com.limitip.mm.mark_movie.view.fragment.ThreeFragment;
-import com.limitip.mm.mark_movie.view.fragment.TwoFragment;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;

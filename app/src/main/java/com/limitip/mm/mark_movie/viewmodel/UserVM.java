@@ -3,6 +3,8 @@ package com.limitip.mm.mark_movie.viewmodel;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.limitip.mm.mark_movie.Model.UserModel;
@@ -10,9 +12,11 @@ import com.limitip.mm.mark_movie.Model.modelImp.UserModelImpl;
 import com.limitip.mm.mark_movie.R;
 import com.limitip.mm.mark_movie.adapter.CustomDialog;
 import com.limitip.mm.mark_movie.base.BaseLoadListener;
+import com.limitip.mm.mark_movie.databinding.ActivityUserRegisterBinding;
 import com.limitip.mm.mark_movie.util.Id;
 import com.limitip.mm.mark_movie.util.GetActivity;
 import com.limitip.mm.mark_movie.pojo.User;
+import com.limitip.mm.mark_movie.util.MyRegexUtil;
 import com.limitip.mm.mark_movie.view.Iview.UserView;
 import com.limitip.mm.mark_movie.view.MainActivity;
 import com.limitip.mm.mark_movie.view.UserLoginActivity;
@@ -55,13 +59,15 @@ public class UserVM{
         });
     }
 
-    public void userRegister(User user, final View view) {
-        final CustomDialog dialog = new CustomDialog(GetActivity.getActivityFromView(view), R.style.CustomDialog);
+    public void userRegister(User user, final ActivityUserRegisterBinding binding) {
+        final Activity activity = GetActivity.getActivityFromView(binding.getRoot());
+
+        final CustomDialog dialog = new CustomDialog(activity, R.style.CustomDialog);
         dialog.show();
         userModel.userRegister(user, new BaseLoadListener<String>() {
             @Override
             public void LoadSuccess(String result) {
-                Activity activity = GetActivity.getActivityFromView(view);
+
                 if (result.equals("Success")){
                     Toast.makeText(activity,"注册成功",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(activity, UserLoginActivity.class);

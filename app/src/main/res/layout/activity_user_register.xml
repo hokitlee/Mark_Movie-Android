@@ -40,6 +40,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:text="用户名" />
 
         <EditText
@@ -47,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:selectAllOnFocus="true"
+            android:maxLength="15"
             android:hint="用户名"
             android:text="@={user.userName}"
             />
@@ -71,14 +73,21 @@
             android:layout_height="wrap_content"
             android:text="性别" />
 
-        <EditText
-            android:id="@+id/registerUserSex"
+        <RadioGroup
+            android:id="@+id/select"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:selectAllOnFocus="true"
-            android:hint="手机号码"
-            android:text="@={user.sex}"
-            />
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:text="男"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:text="女"
+                android:textColor="#000000" />
+        </RadioGroup>
 
         <TextView
             android:layout_width="match_parent"
@@ -91,15 +100,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:selectAllOnFocus="true"
+            android:maxLength="15"
             android:hint="电话号码"
             android:text="@={`` +user.phone}"
             />
 <!--   android:text="@={user.phone}"-->
+       <!-- android:onClick="@{(view)->userVm.userRegister(user,view)}"-->
         <Button
             android:id="@+id/registerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{(view)->userVm.userRegister(user,view)}"
             android:text="注册"/>
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#d21f1e"
+            android:text=""
+            />
     </LinearLayout>
 </layout>
