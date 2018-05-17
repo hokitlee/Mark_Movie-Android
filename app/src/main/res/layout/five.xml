@@ -14,11 +14,12 @@
             android:id="@+id/toolbarLoginTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="影视"
+            android:text="个人中心"
+            android:layout_gravity="center"
             android:textColor="@android:color/white"/>
     </android.support.v7.widget.Toolbar>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="5" />
+        android:text="么得东西" />
 </LinearLayout>

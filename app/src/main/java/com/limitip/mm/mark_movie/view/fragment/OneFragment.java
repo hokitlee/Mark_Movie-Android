@@ -17,36 +17,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.limitip.mm.mark_movie.R;
-import com.limitip.mm.mark_movie.adapter.MovieAdapter;
 import com.limitip.mm.mark_movie.clikListener.ObserverListener;
 import com.limitip.mm.mark_movie.databinding.OneBinding;
 import com.limitip.mm.mark_movie.pojo.DoubanMovie;
-import com.limitip.mm.mark_movie.service.movie.MovieService1;
+import com.limitip.mm.mark_movie.view.MovieShowActivity;
 import com.limitip.mm.mark_movie.view.SearchMovieActivity;
 import com.limitip.mm.mark_movie.viewmodel.MovieVM;
 
-public class OneFragment extends Fragment implements View.OnClickListener, ObserverListener {
+public class OneFragment extends Fragment implements View.OnClickListener{
 
     private OneBinding binding;
-    private MovieAdapter movieAdapter;
-
     private View rootView;
     private Activity activity;
-    private MovieService1 movieService1;
     private Toolbar toolbar;
-    private LayoutInflater inflater;
     private SearchView searchView;
-    private Button nowShow;
-    private Button comingSoon;
-    private Button top250;
-    private GridView gridView;
-    private DoubanMovie doubanMovie;
     private MovieVM movieVM;
 
     @Override
@@ -60,10 +48,23 @@ public class OneFragment extends Fragment implements View.OnClickListener, Obser
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        this.inflater = inflater;
         binding = DataBindingUtil.inflate(inflater, R.layout.one, container, false);
+        rootView = binding.getRoot();
         initialize();
         return rootView;
+    }
+
+    private void initialize() {
+        toolbar = binding.toolbar1;
+        ((AppCompatActivity) activity).setSupportActionBar(toolbar);
+        ((AppCompatActivity) activity).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        movieVM = new <OneBinding>MovieVM();
+        movieVM.nowShowMovieVM(binding);
+        //点击监听
+        binding.apiMoiveGridview.setOnItemClickListener(new OICL());
+        binding.nowShow.setOnClickListener(this);
+        binding.comingSoon.setOnClickListener(this);
+        binding.top250.setOnClickListener(this);
     }
 
 
@@ -78,9 +79,8 @@ public class OneFragment extends Fragment implements View.OnClickListener, Obser
             @Override
             public boolean onQueryTextSubmit(String query) {
                 searchView.setIconified(true);
-//                movieVM.searchMovie(query,binding);
                 Intent intent = new Intent(activity, SearchMovieActivity.class);
-                intent.putExtra("searchContext", query);
+                intent.putExtra("searchText", query);
                 startActivity(intent);
                 return false;
             }
@@ -120,30 +120,16 @@ public class OneFragment extends Fragment implements View.OnClickListener, Obser
         }
     }
 
-    private void initialize() {
-        toolbar = binding.toolbar1;
-        ((AppCompatActivity) activity).setSupportActionBar(toolbar);
-        ((AppCompatActivity) activity).getSupportActionBar().setDisplayShowTitleEnabled(false);
-        rootView = binding.getRoot();
-        movieVM = new MovieVM();
-        movieVM.nowShowMovieVM(binding);
-        //点击监听
-        binding.apiMoiveGridview.setOnItemClickListener(new OICL());
-        binding.nowShow.setOnClickListener(this);
-        binding.comingSoon.setOnClickListener(this);
-        binding.top250.setOnClickListener(this);
-    }
 
-    @Override
-    public void observerUpData(Object object) {
-        doubanMovie = (DoubanMovie) object;
-    }
 
     class OICL implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            String apiMovieNmae = ((TextView) view.findViewById(R.id.apiMovieNmae)).getText().toString();
-            Toast.makeText(activity, apiMovieNmae, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(rootView.getContext(), MovieShowActivity.class);
+            intent.putExtra("movie", binding.getAdapter().getDoubanMovie().getSubjects()
+                    .get(position));
+            intent.putExtra("show",0);
+            rootView.getContext().startActivity(intent);
         }
     }
 }

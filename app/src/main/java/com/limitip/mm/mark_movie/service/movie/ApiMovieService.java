@@ -13,18 +13,12 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Query;
 
-public interface MovieService {
+public interface ApiMovieService {
     OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .addInterceptor(new LogInterceptor()).build();
 
     @GET("/v2/movie/in_theaters")
     Observable<DoubanMovie> getNowShowMovie(@Header("Scope") String Scope);
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(ConnectBase.DOUBAN_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .client(okHttpClient)
-            .build();
 
     @GET("/v2/movie/coming_soon")
     Observable<DoubanMovie> getComingSoonMovie(@Header("Scope") String scope);
@@ -35,6 +29,12 @@ public interface MovieService {
     @GET("/v2/movie/search")
     Observable<DoubanMovie> getSearchMovie(@Query("q") String search1);
 
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(ConnectBase.API_DOUBAN_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .client(okHttpClient)
+            .build();
 
-    MovieService movieService = retrofit.create(MovieService.class);
+    ApiMovieService API_MOVIE_SERVICE = retrofit.create(ApiMovieService.class);
 }

@@ -34,13 +34,13 @@ public class ObserverManager implements SubjectListener {
      * 通知观察者刷新数据
      */
     @Override
-    public void notifyObserver(ObserverListener observerListener,Object object) {
-        int index = list.indexOf(observerListener);
-        list.get(index).observerUpData(object);
-//        for (ObserverListener  Iterative: list) {
+    public void notifyObserver(Object object) {
+//        int index = list.indexOf(observerListener);
+//        list.get(index).observerUpData(object);
+        for (ObserverListener  Iterative: list) {
 //            if(Iterative == observerListener)
-//            observerListener.observerUpData(object);
-//        }
+            Iterative.observerUpData(object);
+        }
     }
 
     /**

@@ -50,7 +50,7 @@
             android:layout_height="match_parent"
             android:button="@null"
             android:gravity="center"
-            android:text="4"/>
+            android:text="小视频"/>
         <RadioButton
             android:id="@+id/five"
             android:layout_width="0dp"
@@ -58,7 +58,7 @@
             android:layout_height="match_parent"
             android:button="@null"
             android:gravity="center"
-            android:text="5"/>
+            android:text="设置"/>
 
     </RadioGroup>
 

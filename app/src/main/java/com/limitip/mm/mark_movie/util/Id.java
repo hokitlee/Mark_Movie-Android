@@ -5,7 +5,7 @@ package com.limitip.mm.mark_movie.util;
  */
 
 public class Id {
-    public static String id;
+    public static int id;
     public static String token;
 
 //    @BindingConversion

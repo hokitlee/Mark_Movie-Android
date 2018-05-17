@@ -41,5 +41,5 @@ dependencies {
 //    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     implementation 'com.parkingwang:okhttp3-loginterceptor:latest.integration'
-
+    implementation 'com.wang.avi:library:2.1.3'
 }

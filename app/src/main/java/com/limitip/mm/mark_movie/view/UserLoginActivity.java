@@ -30,7 +30,6 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.user_login:
-                System.out.println("onClick");
                 break;
             case R.id.user_register:
                 Intent intent = new Intent(this, UserRegisterActivity.class);

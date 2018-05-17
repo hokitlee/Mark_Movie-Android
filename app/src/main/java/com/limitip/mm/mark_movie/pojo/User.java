@@ -5,19 +5,33 @@ import android.databinding.Bindable;
 
 import com.android.databinding.library.baseAdapters.BR;
 
+import java.io.Serializable;
+
 /**
  * User: hokitlee
  * Date: 2018/4/11
  * Time: 19:35
  * Description:
  */
-public class User extends BaseObservable{
+public class User extends BaseObservable implements Serializable {
     private int id;
     private String userName;
     private String userPsd;
     private String sex;
     private int phone;
     private String token;
+    private int Status;
+
+    @Bindable
+    public int getStatus() {
+
+        return Status;
+    }
+
+    public void setStatus(int status) {
+        Status = status;
+        notifyPropertyChanged(BR.status);
+    }
 
     @Bindable
     public int getId() {

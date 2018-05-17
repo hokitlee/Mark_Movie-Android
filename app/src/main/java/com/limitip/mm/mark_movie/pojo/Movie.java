@@ -1,12 +1,14 @@
 package com.limitip.mm.mark_movie.pojo;
 
+import java.io.Serializable;
+
 /**
  * User: hokitlee
  * Date: 2018/4/11
  * Time: 19:34
  * Description:
  */
-public class Movie {
+public class Movie  implements Serializable {
     private int id;
     private String movieName;
     private String movieType;

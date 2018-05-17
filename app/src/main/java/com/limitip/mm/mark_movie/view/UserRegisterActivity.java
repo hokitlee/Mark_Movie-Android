@@ -10,13 +10,11 @@ import android.view.MenuItem;
 import com.limitip.mm.mark_movie.R;
 import com.limitip.mm.mark_movie.databinding.ActivityUserRegisterBinding;
 import com.limitip.mm.mark_movie.pojo.User;
-import com.limitip.mm.mark_movie.service.user.UserServiceImpl;
 import com.limitip.mm.mark_movie.viewmodel.UserVM;
 
 public class UserRegisterActivity extends AppCompatActivity {
     private ActivityUserRegisterBinding binding;
     private User user;
-    private UserServiceImpl userServiceImpl;
     private Activity activity;
     private Toolbar toolbar;
     private UserVM userVM;

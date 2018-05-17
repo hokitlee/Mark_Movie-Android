@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<data>
-    <variable
-        name="adapter"
-        type="com.limitip.mm.mark_movie.adapter.MovieAdapter" >
-    </variable>
-    <variable
-        name="layoutManager"
-        type="android.widget.GridView" />
-    <variable
-        name="movies"
-        type="com.limitip.mm.mark_movie.pojo.DoubanMovie">
-    </variable>
-</data>
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="com.limitip.mm.mark_movie.adapter.MovieAdapter"></variable>
+    </data>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,6 +24,7 @@
                 android:id="@+id/toolbarLoginTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="影视"
                 android:textColor="@android:color/white" />
         </android.support.v7.widget.Toolbar>
@@ -68,11 +64,10 @@
             android:id="@+id/apiMoiveGridview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:adapter="@{adapter}"
             android:columnWidth="80dp"
             android:numColumns="3"
-            android:stretchMode="spacingWidthUniform"
-            android:adapter="@{adapter}"
-            />
+            android:stretchMode="spacingWidthUniform" />
         <!--android:stretchMode="spacingWidthUniform"-->
     </LinearLayout>
 </layout>

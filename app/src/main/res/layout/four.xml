@@ -1,9 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="4"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/toolbar1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/mytoor">
+
+            <TextView
+                android:id="@+id/toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="这块本来是留给播放视频的，没来得及写"
+                android:textColor="@android:color/white" />
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator1"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallPulseIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator2"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallGridPulseIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator3"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallClipRotateIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator4"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallClipRotatePulseIndicator" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator5"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="SquareSpinIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator6"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallClipRotateMultipleIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator7"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallPulseRiseIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator8"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallRotateIndicator" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator9"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="CubeTransitionIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator10"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallZigZagIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator11"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallZigZagDeflectIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator12"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallTrianglePathIndicator" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator13"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallScaleIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator14"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="LineScaleIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator15"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="LineScalePartyIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator16"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallScaleMultipleIndicator" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator17"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallPulseSyncIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator18"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallBeatIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator19"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="LineScalePulseOutIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator20"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="LineScalePulseOutRapidIndicator" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator21"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallScaleRippleIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator22"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="LineScaleIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator23"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallScaleRippleMultipleIndicator" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/cator24"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:visibility="visible"
+                app:indicatorColor="#d21f1e"
+                app:indicatorName="BallSpinFadeLoaderIndicator" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

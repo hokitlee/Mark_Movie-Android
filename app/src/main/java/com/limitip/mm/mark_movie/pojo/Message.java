@@ -1,6 +1,8 @@
 package com.limitip.mm.mark_movie.pojo;
 
-public class Message {
+import java.io.Serializable;
+
+public class Message implements Serializable {
     private String msg;
 
     public String getMsg() {

@@ -4,9 +4,11 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
 import com.android.databinding.library.baseAdapters.BR;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DoubanMovie extends  BaseObservable{
+public class DoubanMovie extends  BaseObservable implements Serializable {
     private int count;
     private int total;
     private ArrayList<DoubanSubjects> subjects;
@@ -46,10 +48,10 @@ public class DoubanMovie extends  BaseObservable{
 
     /**
      * 条目*/
-    public class DoubanSubjects extends BaseObservable{
-        private Rating rating;
+    public class DoubanSubjects extends BaseObservable implements Serializable{
+        private Rating rating; //评分
         private ArrayList<String> genres;//电影标签
-        private String title;
+        private String title; //名称
         private String subtype;//电影分类，E movie
         private String year;//年份
         private Images images;//图片地址
@@ -147,7 +149,7 @@ public class DoubanMovie extends  BaseObservable{
 
     /**
      * 评分*/
-    public class Rating extends BaseObservable{
+    public class Rating extends BaseObservable implements Serializable{
         private int max;
         private int min;
         private Double average;//平均
@@ -198,7 +200,7 @@ public class DoubanMovie extends  BaseObservable{
         }
     }
 
-    public class Images extends BaseObservable{
+    public class Images extends BaseObservable implements Serializable{
         private String small;
         private String large;
         private String medium;
