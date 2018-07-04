@@ -19,13 +19,18 @@ import okhttp3.Response;
  */
 
 public class ConnectBase {
-    public static String BASE_URL = "http://192.168.31.37:8080/";
+    //public static String BASE_URL = "http://10.11.73.218:8080/";
+//    public static String BASE_URL = "http://192.168.139.128:8080/a/";
+    public static String BASE_URL = "http://limitip.com:8080/a/";
     public static String API_DOUBAN_URL = "http://api.douban.com/";
     public Call getPostCall(RequestBody body, String Url) {
         /*
          * 172.20.10.2 手机
          * 192.168.31.37 电脑
-         * 10.11.72.209 鹤琴*/
+         *  10.11.73.218 鹤琴
+         *  192.168.139.128
+         *  */
+
         final String URL = "http://192.168.31.37:8080/";
         OkHttpClient client = new OkHttpClient.Builder()
                 .readTimeout(5, TimeUnit.SECONDS)
