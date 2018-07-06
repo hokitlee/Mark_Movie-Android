@@ -21,7 +21,7 @@ import okhttp3.Response;
 public class ConnectBase {
     //public static String BASE_URL = "http://10.11.73.218:8080/";
 //    public static String BASE_URL = "http://192.168.139.128:8080/a/";
-    public static String BASE_URL = "http://limitip.com:8080/a/";
+    public static String BASE_URL = "http://mark.limitip.com/";
     public static String API_DOUBAN_URL = "http://api.douban.com/";
     public Call getPostCall(RequestBody body, String Url) {
         /*
