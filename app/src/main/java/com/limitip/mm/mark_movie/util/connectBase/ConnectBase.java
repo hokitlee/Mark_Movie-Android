@@ -20,40 +20,9 @@ import okhttp3.Response;
 
 public class ConnectBase {
     //public static String BASE_URL = "http://10.11.73.218:8080/";
-//    public static String BASE_URL = "http://192.168.139.128:8080/a/";
+    //public static String BASE_URL = "http://192.168.139.128:8080/a/";
     public static String BASE_URL = "http://mark.limitip.com/";
     public static String API_DOUBAN_URL = "http://api.douban.com/";
-    public Call getPostCall(RequestBody body, String Url) {
-        /*
-         * 172.20.10.2 手机
-         * 192.168.31.37 电脑
-         *  10.11.73.218 鹤琴
-         *  192.168.139.128
-         *  */
-
-        final String URL = "http://192.168.31.37:8080/";
-        OkHttpClient client = new OkHttpClient.Builder()
-                .readTimeout(5, TimeUnit.SECONDS)
-                .build();
-        Request request = new Request.Builder()
-                .url(URL + Url)
-                .post(body).build();
-        Call call = client.newCall(request);
-        return call;
-    }
-
-    public Call getGetCall(String Url) {
-        final String URL = "http://api.douban.com";
-        OkHttpClient client = new OkHttpClient.Builder()
-                .readTimeout(5, TimeUnit.SECONDS)
-                .build();
-        Request request = new Request.Builder()
-                .url(URL + Url)
-                .addHeader("Scope", "movie_basic_r")
-                .build();
-        Call call = client.newCall(request);
-        return call;
-    }
 
 
     public static void main(String[] args) {
